@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=Sora:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Core Palette - HSL for precision */
+  --nexus-bg: #000000;
+  --nexus-bg-alt: #050505;
+  --nexus-surface: #0a0a0a;
+  --nexus-surface-soft: #141414;
+  
+  --nexus-indigo: #6366f1;
+  --nexus-purple: #a855f7;
+  --nexus-cyan: #06b6d4;
+  
+  --nexus-accent: linear-gradient(135deg, var(--nexus-indigo) 0%, var(--nexus-purple) 100%);
+  --nexus-accent-glow: 0 0 20px rgba(99, 102, 241, 0.3);
+  
+  --nexus-text: #ffffff;
+  --nexus-text-dim: #a1a1aa;
+  --nexus-text-muted: #52525b;
+  
+  --nexus-border: rgba(255, 255, 255, 0.06);
+  --nexus-border-bright: rgba(255, 255, 255, 0.12);
+  
+  /* Glassmorphism */
+  --nexus-glass: rgba(255, 255, 255, 0.03);
+  --nexus-glass-heavy: rgba(255, 255, 255, 0.06);
+  --nexus-blur: blur(20px);
+  
+  /* Radius */
+  --nexus-radius-sm: 8px;
+  --nexus-radius-md: 14px;
+  --nexus-radius-lg: 24px;
+  --nexus-radius-xl: 40px;
+  
+  /* Motion */
+  --nexus-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --nexus-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Base reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--nexus-bg);
+  color: var(--nexus-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 0% 0%, rgba(99, 102, 241, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 100% 100%, rgba(168, 85, 247, 0.05) 0%, transparent 50%);
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, .font-heading {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Premium Layout Components */
+.nexus-app-container {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  height: 100vh;
+  padding: 16px;
+  gap: 16px;
+  overflow: hidden;
+}
+
+.nexus-sidebar {
+  background: var(--nexus-glass);
+  backdrop-filter: var(--nexus-blur);
+  border: 1px solid var(--nexus-border);
+  border-radius: var(--nexus-radius-lg);
+  display: flex;
+  flex-col: column;
+  padding: 32px 16px;
+}
+
+.nexus-main {
+  background: var(--nexus-bg-alt);
+  border: 1px solid var(--nexus-border);
+  border-radius: var(--nexus-radius-lg);
+  overflow-y: auto;
+  position: relative;
+}
+
+/* Glass & Glow */
+.glass-panel {
+  background: var(--nexus-glass);
+  backdrop-filter: var(--nexus-blur);
+  border: 1px solid var(--nexus-border);
+  border-radius: var(--nexus-radius-md);
+  transition: all 0.3s var(--nexus-ease);
+}
+
+.glass-panel:hover {
+  border-color: var(--nexus-border-bright);
+  background: var(--nexus-glass-heavy);
+}
+
+.glow-text {
+  background: var(--nexus-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Interactive Elements */
+.nexus-btn {
+  background: var(--nexus-glass);
+  border: 1px solid var(--nexus-border);
+  color: var(--nexus-text);
+  padding: 12px 24px;
+  border-radius: var(--nexus-radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s var(--nexus-ease);
+  font-family: 'Inter', sans-serif;
+}
+
+.nexus-btn-primary {
+  background: var(--nexus-accent);
+  border: none;
+}
+
+.nexus-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--nexus-accent-glow);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--nexus-surface-soft);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--nexus-text-muted);
+}
+
+/* Immersive background image */
+.immersive-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.4;
+  object-fit: cover;
+  pointer-events: none;
+}
