@@ -10,12 +10,8 @@ import {
   Settings, 
   Bell, 
   Search, 
-  Zap,
-  ChevronRight,
-  Menu,
-  X
+  Zap
 } from 'lucide-react';
-import { useState } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import bgPremium from '../../assets/bg-premium.png';
 
@@ -30,7 +26,6 @@ const navItems = [
 ];
 
 const AppLayout = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   return (
     <div className="nexus-app-container">
