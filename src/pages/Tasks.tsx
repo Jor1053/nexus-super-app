@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { 
   Plus, 
   CheckCircle2, 
@@ -16,7 +16,7 @@ import {
   AlertCircle
 } from 'lucide-react';
 
-const TaskRow = ({ title, status, priority, time, team }: any) => {
+const TaskRow = ({ title, status, priority, time }: any) => {
   const [done, setDone] = useState(status === 'Done');
 
   return (

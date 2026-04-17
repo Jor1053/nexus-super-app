@@ -1,9 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { 
   Send, 
   Bot, 
-  Sparkles, 
   Mic, 
   Image as ImageIcon, 
   Paperclip, 
@@ -11,9 +10,23 @@ import {
   Cpu, 
   History, 
   Terminal,
-  ChevronRight,
-  Maximize2
+  Maximize2,
+  Activity as ActivityIcon, 
+  Globe as GlobeIcon, 
+  ArrowUpRight
 } from 'lucide-react';
+
+interface MetadataItem {
+  label: string;
+  value: string;
+  icon: React.ElementType;
+}
+
+interface Message {
+  role: 'assistant' | 'user';
+  content: string;
+  metadata?: MetadataItem[];
+}
 
 const AgentMessage = ({ content, metadata }: any) => (
   <motion.div 
@@ -79,13 +92,13 @@ const UserMessage = ({ content }: any) => (
 );
 
 const AIChat = () => {
-  const [messages, setMessages] = useState([
+  const [messages, setMessages] = useState<Message[]>([
     { 
       role: 'assistant', 
       content: "Session established. I have analyzed your enterprise data stream. There is a strategic opportunity to optimize your cloud node allocation. Shall we initiate the autonomous scaling sequence?",
       metadata: [
-        { label: 'Current Load', value: '72% Capacity', icon: Activity },
-        { label: 'Latency Node', value: 'Singapore-01', icon: Globe }
+        { label: 'Current Load', value: '72% Capacity', icon: ActivityIcon },
+        { label: 'Latency Node', value: 'Singapore-01', icon: GlobeIcon }
       ]
     },
   ]);
@@ -184,8 +197,5 @@ const AIChat = () => {
 };
 
 // Re-using components in other files is not shown here but implied for standard React structure
-const Activity = (props: any) => <ActivityIcon {...props} />;
-const Globe = (props: any) => <GlobeIcon {...props} />;
-import { Activity as ActivityIcon, Globe as GlobeIcon, ArrowUpRight } from 'lucide-react';
 
 export default AIChat;
