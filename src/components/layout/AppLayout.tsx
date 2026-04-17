@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { useState } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
+import bgPremium from '../../assets/bg-premium.png';
 
 const navItems = [
   { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard, path: '/' },
@@ -34,7 +35,7 @@ const AppLayout = () => {
   return (
     <div className="nexus-app-container">
       {/* Immersive Background */}
-      <img src="/src/assets/bg-premium.png" className="immersive-bg" alt="bg" />
+      <img src={bgPremium} className="immersive-bg" alt="bg" />
       
       {/* Sidebar */}
       <motion.aside 
